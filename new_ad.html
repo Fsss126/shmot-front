@@ -21,16 +21,15 @@
     <!--<link rel="stylesheet" href="libs/owl-carousel/owl.carousel.css"/>-->
     <link rel="stylesheet" href="libs/owlcarousel/owl.carousel.css">
     <link rel="stylesheet" href="libs/selectize/css/selectize.css">
-
     <link rel="stylesheet" href="libs/countdown/jquery.countdown.css"/>
     <link rel="stylesheet" href="css/fonts.css"/>
     <link rel="stylesheet" href="css/main.css"/>
+    <link rel="stylesheet" href="css/custom_inputs.css"/>
     <link rel="stylesheet" href="css/media.css"/>
     <link rel="stylesheet" href="libs/dropzone/dropzone.css"/>
+    <link rel="stylesheet" href="css/new_ad.css"/>
     <link rel="stylesheet" href="css/custom_selectize.css"/>
-    <link rel="stylesheet" href="css/custom_inputs.css"/>
     <link rel="stylesheet" href="css/custom_dropzone.css"/>
-    <link rel="stylesheet" href="css/sign_up.css"/>
     <!--Google Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700&amp;subset=cyrillic" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&amp;subset=cyrillic" rel="stylesheet">
@@ -53,7 +52,7 @@
     <meta name="msapplication-TileImage" content="icons/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 </head>
-<body>
+<body class="signed_in">
 <!--[if lt IE 9]>
 <script src="libs/html5shiv/es5-shim.min.js"></script>
 <script src="libs/html5shiv/html5shiv.min.js"></script>
@@ -68,17 +67,17 @@
 <script src="libs/scrollto/jquery.scrollTo.min.js"></script>
 <!--<script src="libs/owl-carousel/owl.carousel.min.js"></script>-->
 <script src="libs/owlcarousel/owl.carousel.min.js"></script>
+<script src="libs/selectize/js/standalone/selectize.min.js"></script>
 
 <script src="libs/dropzone/dropzone.js"></script>
-
-<script src="libs/selectize/js/standalone/selectize.min.js"></script>
 
 <script src="libs/countdown/jquery.plugin.js"></script>
 <script src="libs/countdown/jquery.countdown.min.js"></script>
 <script src="libs/countdown/jquery.countdown-ru.js"></script>
 <script src="libs/landing-nav/navigation.js"></script>
 <script src="js/common.js"></script>
-<script src="js/sign_up.js"></script>
+<script src="js/new_ad.js"></script>
+
 <!-- Yandex.Metrika counter --><!-- /Yandex.Metrika counter -->
 <!-- Google Analytics counter --><!-- /Google Analytics counter -->
 
@@ -383,93 +382,105 @@
         </nav>
     </header>
 
-    <div class="section span" style="margin-bottom: 86px;">
+    <div class="span" style="margin-top: 32px; margin-bottom: 86px; background-color: white; border-bottom: 1px solid #E0E0E0;	border-top: 1px solid #E0E0E0;">
         <div class="centered">
-            <div id="form_wrap">
+            <div class="no_fields" id="form_wrap">
                 <form action="/file-upload" class="main_form dropzone" id="dropzone">
                     <div class="fields">
-                        <div class="title" style="text-align: center; padding-top: 32px">Регистрация</div>
+                    <div class="title" style="text-align: center; padding-top: 32px">Новое объявление</div>
+                    <div class="center">
+                        <p>Категория</p>
+                        <select class="required" id="category" style="margin-right: 10px" name="category">
+                            <option value disabled selected>Выберите категорию</option>
+                            <option value="women">Женская одежда</option>
+                            <option value="men">Мужская одежда</option>
+                        </select>
+                        <select class="required" id="subcategory" name="subcategory">
+                            <option value disabled selected>Выберите подкатегорию</option>
+                            <option value="clothing">Одежда</option>
+                            <option value="outer_clothing">Верхняя одежда</option>
+                            <option value="footwear">Обувь</option>
+                            <option value="accessories">Аксессуары</option>
+                        </select>
+                        <div class="icon tooltip-toggle" aria-label="Обязательно для заполнения">
+                            <img class="neutral" src="images/important.svg">
+                            <img class="red" src="images/important_red.svg">
+                        </div>
+                    </div>
+                    <div class="center">
+                        <p>Тип</p>
+                        <select class="required" disabled id="type" name="type">
+                            <option value disabled selected>Выберите тип</option>
+                        </select>
+                        <div class="icon tooltip-toggle" style="left: 435px" aria-label="Обязательно для заполнения">
+                            <img class="neutral" src="images/important.svg">
+                            <img class="red" src="images/important_red.svg">
+                        </div>
+                    </div>
+                    <div id="additional"></div>
+                    <div class="center hidden" id="brand_wrap">
+                        <p>Бренд</p>
+                        <select id="brand" name="brand">
+                            <option value="null" selected>Не выбрано</option>
+                        </select>
+                    </div>
+                    <div id="other_fields">
                         <div class="center">
-                            <input class="required" type="text" name="login" placeholder="Логин">
+                            <p>Название товара</p>
+                            <input class="required expanded" type="text" name="title">
                             <div class="icon tooltip-toggle" aria-label="Обязательно для заполнения">
                                 <img class="neutral" src="images/important.svg">
                                 <img class="red" src="images/important_red.svg">
                             </div>
                         </div>
-                        <div class="center">
-                            <input class="required" type="password" name="password" placeholder="Пароль" id="password" maxlength="30">
-                            <div class="icon tooltip-toggle" aria-label="Минимальная длина 6 символов">
+                        <div class="center" id="price_wrap">
+                            <p>Цена</p>
+                            <input class="required" type="number" maxlength="9" id="price" name="price">
+                            <div class="icon tooltip-toggle" aria-label="Обязательно для заполнения" style="left: 353px">
                                 <img class="neutral" src="images/important.svg">
                                 <img class="red" src="images/important_red.svg">
                             </div>
-                        </div>
-                        <div class="center">
-                            <input class="required" type="password" name="password_repeat" placeholder="Повторите пароль" id="password_repeat" maxlength="30">
-                            <div class="icon tooltip-toggle" aria-label="Пароли должны совпадать">
-                                <img class="neutral" src="images/important.svg">
-                                <img class="red" src="images/important_red.svg">
-                            </div>
-                        </div>
-                        <div class="center">
-                            <div class="title" style="">Персональная информация</div>
                         </div>
                         <div class="center" style="/*margin-top: 16px*/">
-                            <input class="required" type="text" name="name" placeholder="Имя">
-                            <div class="icon tooltip-toggle" aria-label="Обязательно для заполнения">
+                            <p>Город</p>
+                            <select class="required" id="city" name="city">
+                                <option value disabled selected>Выберите город</option>
+                            </select>
+                            <div class="icon tooltip-toggle" style="left: 435px" aria-label="Обязательно для заполнения">
                                 <img class="neutral" src="images/important.svg">
                                 <img class="red" src="images/important_red.svg">
                             </div>
                         </div>
-                        <div class="center">
-                            <input class="required" type="text" name="surname" placeholder="Фамилия">
-                            <div class="icon tooltip-toggle" aria-label="Обязательно для заполнения">
-                                <img class="neutral" src="images/important.svg">
-                                <img class="red" src="images/important_red.svg">
-                            </div>
-                        </div>
-                        <div>
-                            <select id="city" name="city">
-                                <option value disabled selected>Город</option>
+                        <div class="center" style="/*margin-top: 16px*/">
+                            <p>Пересылка</p>
+                            <select id="sending" name="sending">
+                                <option selected>Без пересылки</option>
+                                <option>С пересылкой</option>
                             </select>
                         </div>
-                        <div class="center" style="/*margin-top: 16px*/">
-                            <div class="title" style="text-align: center; padding-top: 16px">Контактная информация</div>
-                            <div class="icon tooltip-toggle" id="contacts_info" aria-label="Чтобы другие пользователи могли с Вами связаться">
-                                <img src="images/info.svg">
-                            </div>
+                        <div class="center" style="align-items: inherit; height: 120px">
+                            <p>Описание</p>
+                            <textarea class="expanded" style="resize: none; height: 100px" name="description"></textarea>
                         </div>
-                        <div id="contacts">
-                            <div class="center">
-                                <input class="required" type="tel" name="phone" id="phone" maxlength="18" placeholder="Телефон">
-                                <div class="icon tooltip-toggle" aria-label="Обязательно для заполнения">
-                                    <img class="neutral" src="images/important.svg">
-                                    <img class="red" src="images/important_red.svg">
-                                </div>
+                        <div class="center" style="align-items: inherit; width: 10px; position: absolute;">
+                            <p>Фотографии</p>
+                            <div class="icon tooltip-toggle" id="drop" aria-label="Нужна хотя бы одна фотография" style="top: 12px">
+                                <img class="neutral" src="images/important.svg">
+                                <img class="red" src="images/important_red.svg">
                             </div>
-                            <div style="text-align: center;">
-                                <div><input type="email" class="expanded" name="email" id="email" placeholder="Электронная почта"></div>
-                                <div><input type="url" class="expanded" name="vk" placeholder="Вконтакте"></div>
-                                <div><input type="url" class="expanded" name="fb" placeholder="Facebook"></div>
-                                <button class="contrast_btn" type="button" onclick="check()">Зарегистрироваться</button>
-                                <button id="submit" type="submit" style="display: none"></button>
                             </div>
+                        <button id="submit" type="submit" style="display: none"></button>
+                        <button class="contrast_btn" type="button" onclick="check()">Подать объявление</button>
                         </div>
-                    </div>
-                    <div class="center" id="avatar">
-                        <div class="title" style="">Аватар</div>
                     </div>
                 </form>
-                <div id="default_avatar">
-                    <img class="cropping" src="images/avatar_placeholder.svg">
-                </div>
-                <img id="background" src="images/sign_up_placeholder.png">
             </div>
         </div>
     </div>
 
     <!-- form itself -->
     <div id="sign_in_popup" class="white-popup mfp-hide">
-        <div class="title">Вход</div>
+        <div class="title" style="text-align: center; padding-top: 16px">Вход</div>
         <button class="sign_in_btn" style="color: #597a9e">
             <i class="fa fa-vk" aria-hidden="true"></i> Вконтакте
         </button>
@@ -479,7 +490,7 @@
         <button class="sign_in_btn" style="color: #3e5b9b">
             <i class="fa fa-facebook" aria-hidden="true"></i> Facebook
         </button>
-        <div class="title">Есть аккаунт?</div>
+        <div class="title" style="text-align: center; padding-top: 16px">Есть аккаунт?</div>
         <form action="/file-upload" id="sign_in_form">
             <input type="text" name="login" placeholder="Логин">
             <input type="password" name="password" placeholder="Пароль">
@@ -491,7 +502,6 @@
 
     <div class="push"></div>
 </div>
-<!--<p id="current_avatar_url" style="display: none">lisa.jpg</p>-->
 <div class="add_button tooltip-toggle" aria-label="Подать объявление">
     <a href="#sign_in_popup"><i class="fa fa-plus" aria-hidden="true"></i></a>
 </div>
