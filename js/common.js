@@ -97,7 +97,7 @@ $(document).ready(function() {
         if ($(this).text().length >= 10)
             $(this).text($(this).text().substr(0,10)+'...');
     });
-    $('.search_btn').on('click',function (e) {
+    $('header .search_btn').on('click',function (e) {
         if ($('.wrap').width() == 1024)
             return;
         else
@@ -119,7 +119,7 @@ $(document).ready(function() {
             }
         }
     });
-    $('.clear_btn').on('click', function () {
+    $('header .clear_btn').on('click', function () {
         $(this).parent().addClass('hidden');
         $(this).next().val("");
     });
