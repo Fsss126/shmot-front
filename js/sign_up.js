@@ -30,7 +30,7 @@ $(document).ready(function () {
         url: "/file/post",
         paramName: "avatar", // The name that will be used to transfer the file
         autoProcessQueue: false,
-        uploadMultiple: true,
+        uploadMultiple: false,
         parallelUploads: 1,
         maxFiles: 1,
         addRemoveLinks: true,

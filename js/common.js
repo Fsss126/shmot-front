@@ -91,7 +91,38 @@ $(document).ready(function() {
         setTimeout(function (e) {
             e.attr('data-balloon', 'Копировать');
         }, 2000, $(this));
-    })
+    });
+    $('.item_description').each(function () {
+        $(this).attr('title', $(this).text());
+        if ($(this).text().length >= 10)
+            $(this).text($(this).text().substr(0,10)+'...');
+    });
+    $('.search_btn').on('click',function (e) {
+        if ($('.wrap').width() == 1024)
+            return;
+        else
+        {
+            e.preventDefault();
+            if ($(this).prev().hasClass('hidden'))
+            {
+                $(this).prev().removeClass('hidden');
+                setTimeout(function (o) {
+                    o.prev().children('input').focus();
+                }, 300, $(this));
+            }
+            else
+            {
+                if ($(this).prev().children('input').val() != "")
+                    $(this).prev().submit();
+                else
+                    $(this).prev().children('input').focus();
+            }
+        }
+    });
+    $('.clear_btn').on('click', function () {
+        $(this).parent().addClass('hidden');
+        $(this).next().val("");
+    });
 });
 
 function check_sign_in() {
