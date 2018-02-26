@@ -53,9 +53,11 @@ $(document).ready(function() {
     $('.fav').on('click', function () {
         if ($(this).hasClass('starred')) { //remove from favourites
             $(this).removeClass('starred');
+            $(this).attr('data-balloon','Добавить в избранное');
         }
         else { //add to favourites
             $(this).addClass('starred');
+            $(this).attr('data-balloon','Удалить из избранного');
         }
     });
     //load brands
