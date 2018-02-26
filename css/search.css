@@ -1,10 +1,10 @@
 @media screen and (max-width: 1024px) {
     #ads .add_item {
-        margin: 0 6px 16px !important;
+        margin: 0 6px 16px 6px; !important;
     }
 }
 #ads .add_item {
-    margin: 0 9px 16px;
+    margin: 0 9px 16px 9px;
 }
 .content>.search {
     width: fit-content;

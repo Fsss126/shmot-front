@@ -26,7 +26,8 @@
     <link rel="stylesheet" href="css/fonts.css"/>
     <link rel="stylesheet" href="css/main.css"/>
     <link rel="stylesheet" href="css/media.css"/>
-    <link rel="stylesheet" href="css/view_ads.css"/>
+    <link rel="stylesheet" href="css/user_profile.css"/>
+    <link rel="stylesheet" href="css/subscriptions.css"/>
     <!--<link rel="stylesheet" href="css/sign_up.css"/>-->
     <!--Google Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700&amp;subset=cyrillic" rel="stylesheet">
@@ -71,7 +72,7 @@
 <script src="libs/countdown/jquery.countdown-ru.js"></script>
 <script src="libs/landing-nav/navigation.js"></script>
 <script src="js/common.js"></script>
-<script src="js/view_ads.js"></script>
+<script src="js/subscriptions.js"></script>
 <!-- Yandex.Metrika counter --><!-- /Yandex.Metrika counter -->
 <!-- Google Analytics counter --><!-- /Google Analytics counter -->
 
@@ -281,7 +282,20 @@
                     </div>
                 </div>
                 <div class="right">
-                    <div class="nav_icon">                        <div class="search_wrap">                            <form name="search" class="search hidden" method="get" action="/search">                                <img src="images/close.svg" class="clear_btn">                                <input type="text" name="key" placeholder="Искать...">                                                            </form>                            <a href="search.html" class="search_btn">                                <img src="images/search_icon.svg" width="50">                            </a>                        </div>                    </div>                    <div class="nav_icon"><a href="">                        <img src="images/fav_icon.svg" width="50">                    </a></div>
+                    <div class="nav_icon">
+                        <div class="search_wrap">
+                            <form name="search" class="search hidden" method="get" action="/search">
+                                <img src="images/close.svg" class="clear_btn">
+                                <input type="text" name="key" placeholder="Искать...">
+                            </form>
+                            <a href="search.html" class="search_btn">
+                                <img src="images/search_icon.svg" width="50">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="nav_icon"><a href="">
+                        <img src="images/fav_icon.svg" width="50">
+                    </a></div>
 
                     <div class="nav_icon" id="profile">
                         <a href="#sign_in_popup" style="display: block">
@@ -300,115 +314,505 @@
             </div>
         </nav>
     </header>
+
     <div class="section span" style="margin-bottom: 86px;">
         <div class="centered">
-            <div class="content">
-                <div class="title" id="path">
-                    <a href="">Женское</a>
-                    <i class="fa fa-angle-left" aria-hidden="true"></i>
-                    <a href="">Обувь</a>
-                    <i class="fa fa-angle-left" aria-hidden="true"></i>
-                    <a href="">Кеды</a>
+            <div class="center">
+                <div class="title active" id="adds" onclick="toggleView()">Объявления</div>
+                <div class="title" id="users" onclick="toggleView()">Пользователи</div>
+            </div>
+            <div id="adds_view">
+                <div class="center">
+                    <div class="add_item">
+                        <a href="kek"><span class="item_span"></span></a>
+                        <div class="likes">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                            <i class="fa fa-heart" aria-hidden="true"></i>
+                            <a>20</a>
+                        </div>
+                        <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                        </div>
+
+                        <div class="overlay item_top_border">
+                            <div class="center">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <a>Москва</a>
+                            </div>
+                            <div class="center">
+                                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                <a>Пересылка</a>
+                            </div>
+                            <div class="size">S</div>
+                        </div>
+                        <img class="item_image cropping item_top_border" src="images/item.jpg">
+                        <div class="item_bottom">
+                            <a href="" class="item_description">Свитер</a>
+                            <div class="item_price">1000</div>
+                            <a href="" class="item_brand">Zara</a>
+                        </div>
+                    </div>
+                    <div class="add_item">
+                        <a href=""><span class="item_span"></span></a>
+                        <div class="likes">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                            <i class="fa fa-heart" aria-hidden="true"></i>
+                            <a>20</a>
+                        </div>
+                        <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                        </div>
+
+                        <div class="overlay item_top_border">
+                            <div class="center">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <a>Москва</a>
+                            </div>
+                            <div class="center">
+                                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                <a>Пересылка</a>
+                            </div>
+                            <div class="size">S</div>
+                        </div>
+                        <img class="item_image cropping item_top_border" src="images/item.jpg">
+                        <div class="item_bottom">
+                            <a href="" class="item_description">Свитер</a>                                        <div class="item_price">1000</div>                                        <a href="" class="item_brand">Zara</a>
+                        </div>
+                    </div>
+                    <div class="add_item">
+                        <a href=""><span class="item_span"></span></a>
+                        <div class="likes">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                            <i class="fa fa-heart" aria-hidden="true"></i>
+                            <a>20</a>
+                        </div>
+                        <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                        </div>
+
+                        <div class="overlay item_top_border">
+                            <div class="center">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <a>Москва</a>
+                            </div>
+                            <div class="center">
+                                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                <a>Пересылка</a>
+                            </div>
+                            <div class="size">S</div>
+                        </div>
+                        <img class="item_image cropping item_top_border" src="images/item.jpg">
+                        <div class="item_bottom">
+                            <a href="" class="item_description">Свитер</a>                                        <div class="item_price">1000</div>                                        <a href="" class="item_brand">Zara</a>
+                        </div>
+                    </div>
+                    <div class="add_item">
+                        <a href=""><span class="item_span"></span></a>
+                        <div class="likes">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                            <i class="fa fa-heart" aria-hidden="true"></i>
+                            <a>20</a>
+                        </div>
+                        <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                        </div>
+
+                        <div class="overlay item_top_border">
+                            <div class="center">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <a>Москва</a>
+                            </div>
+                            <div class="center">
+                                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                <a>Пересылка</a>
+                            </div>
+                            <div class="size">S</div>
+                        </div>
+                        <img class="item_image cropping item_top_border" src="images/item.jpg">
+                        <div class="item_bottom">
+                            <a href="" class="item_description">Свитер</a>                                        <div class="item_price">1000</div>                                        <a href="" class="item_brand">Zara</a>
+                        </div>
+                    </div>
+                    <div class="add_item">
+                        <a href=""><span class="item_span"></span></a>
+                        <div class="likes">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                            <i class="fa fa-heart" aria-hidden="true"></i>
+                            <a>20</a>
+                        </div>
+                        <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                        </div>
+
+                        <div class="overlay item_top_border">
+                            <div class="center">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <a>Москва</a>
+                            </div>
+                            <div class="center">
+                                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                <a>Пересылка</a>
+                            </div>
+                            <div class="size">S</div>
+                        </div>
+                        <img class="item_image cropping item_top_border" src="images/item.jpg">
+                        <div class="item_bottom">
+                            <a href="" class="item_description">Свитер</a>                                        <div class="item_price">1000</div>                                        <a href="" class="item_brand">Zara</a>
+                        </div>
+                    </div>
                 </div>
                 <div class="center">
-                    <form class="filters" id="filters">
-                        <div id="color_filter">
-                            <div class="title">Цвет</div>
-                            <div class="options">
-                                <div class="option">
-                                    <div class="checkbox"></div>
-                                    <input type="checkbox" name="black">
-                                    <label>Черный</label>
-                                </div>
-                                <div class="option">
-                                    <div class="checkbox"></div>
-                                    <input type="checkbox" name="grey">
-                                    <label>Серый</label>
-                                </div>
-                                <div class="option">
-                                    <div class="checkbox"></div>
-                                    <input type="checkbox" name="beige">
-                                    <label>Бежевый</label>
-                                </div>
-                                <div class="option">
-                                    <div class="checkbox"></div>
-                                    <input type="checkbox" name="orange">
-                                    <label>Оранжевый</label>
-                                </div>
-                                <div class="option">
-                                    <div class="checkbox"></div>
-                                    <input type="checkbox" name="khaki">
-                                    <label>Хаки</label>
-                                </div>
-                                <div class="option">
-                                    <div class="checkbox"></div>
-                                    <input type="checkbox" name="green">
-                                    <label>Зеленый</label>
-                                </div>
-                                <div class="option">
-                                    <div class="checkbox"></div>
-                                    <input type="checkbox" name="blue">
-                                    <label>Голубой</label>
-                                </div>
-                                <div class="option">
-                                    <div class="checkbox"></div>
-                                    <input type="checkbox" name="navy">
-                                    <label>Синий</label>
-                                </div>
-                                <div class="option">
-                                    <div class="checkbox"></div>
-                                    <input type="checkbox" name="violet">
-                                    <label>Фиолетовый</label>
-                                </div>
-                                <div class="option">
-                                    <div class="checkbox"></div>
-                                    <input type="checkbox" name="pink">
-                                    <label>Розовый</label>
-                                </div>
-                                <div class="option">
-                                    <div class="checkbox"></div>
-                                    <input type="checkbox" name="red">
-                                    <label>Красный</label>
-                                </div>
-                                <div class="option">
-                                    <div class="checkbox"></div>
-                                    <input type="checkbox" name="burgundy">
-                                    <label>Бордовый</label>
-                                </div>
-                                <div class="option">
-                                    <div class="checkbox"></div>
-                                    <input type="checkbox" name="brown">
-                                    <label>Коричневый</label>
-                                </div>
-                                <div class="option">
-                                    <div class="checkbox"></div>
-                                    <input type="checkbox" name="multicolor">
-                                    <label>Разноцветный</label>
-                                </div>
-                            </div>
+                    <div class="add_item">
+                        <a href="kek"><span class="item_span"></span></a>
+                        <div class="likes">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                            <i class="fa fa-heart" aria-hidden="true"></i>
+                            <a>20</a>
                         </div>
-                        <div id="brand_filter">
-                            <div class="title">Бренд</div>
-                            <div class="options">
+                        <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                        </div>
 
-                            </div>
-                        </div>
-                        <div id="size_filter">
-                            <div class="title">Размер</div>
-                            <div class="options">
-
-                            </div>
-                        </div>
-                        <div class="vertical_nav hidden">
-                            <div class="title">Наверх</div>
-                        </div>
-                    </form>
-                    <div id="ads_wrap">
-                        <div id="ads">
-                            <!--TODO: initially server must add 8 rows of ads-->
+                        <div class="overlay item_top_border">
                             <div class="center">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <a>Москва</a>
+                            </div>
+                            <div class="center">
+                                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                <a>Пересылка</a>
+                            </div>
+                            <div class="size">S</div>
+                        </div>
+                        <img class="item_image cropping item_top_border" src="images/item.jpg">
+                        <div class="item_bottom">
+                            <a href="" class="item_description">Свитер</a>
+                            <div class="item_price">1000</div>
+                            <a href="" class="item_brand">Zara</a>
+                        </div>
+                    </div>
+                    <div class="add_item">
+                        <a href=""><span class="item_span"></span></a>
+                        <div class="likes">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                            <i class="fa fa-heart" aria-hidden="true"></i>
+                            <a>20</a>
+                        </div>
+                        <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                        </div>
+
+                        <div class="overlay item_top_border">
+                            <div class="center">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <a>Москва</a>
+                            </div>
+                            <div class="center">
+                                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                <a>Пересылка</a>
+                            </div>
+                            <div class="size">S</div>
+                        </div>
+                        <img class="item_image cropping item_top_border" src="images/item.jpg">
+                        <div class="item_bottom">
+                            <a href="" class="item_description">Свитер</a>                                        <div class="item_price">1000</div>                                        <a href="" class="item_brand">Zara</a>
+                        </div>
+                    </div>
+                    <div class="add_item">
+                        <a href=""><span class="item_span"></span></a>
+                        <div class="likes">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                            <i class="fa fa-heart" aria-hidden="true"></i>
+                            <a>20</a>
+                        </div>
+                        <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                        </div>
+
+                        <div class="overlay item_top_border">
+                            <div class="center">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <a>Москва</a>
+                            </div>
+                            <div class="center">
+                                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                <a>Пересылка</a>
+                            </div>
+                            <div class="size">S</div>
+                        </div>
+                        <img class="item_image cropping item_top_border" src="images/item.jpg">
+                        <div class="item_bottom">
+                            <a href="" class="item_description">Свитер</a>                                        <div class="item_price">1000</div>                                        <a href="" class="item_brand">Zara</a>
+                        </div>
+                    </div>
+                    <div class="add_item">
+                        <a href=""><span class="item_span"></span></a>
+                        <div class="likes">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                            <i class="fa fa-heart" aria-hidden="true"></i>
+                            <a>20</a>
+                        </div>
+                        <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                        </div>
+
+                        <div class="overlay item_top_border">
+                            <div class="center">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <a>Москва</a>
+                            </div>
+                            <div class="center">
+                                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                <a>Пересылка</a>
+                            </div>
+                            <div class="size">S</div>
+                        </div>
+                        <img class="item_image cropping item_top_border" src="images/item.jpg">
+                        <div class="item_bottom">
+                            <a href="" class="item_description">Свитер</a>                                        <div class="item_price">1000</div>                                        <a href="" class="item_brand">Zara</a>
+                        </div>
+                    </div>
+                    <div class="add_item">
+                        <a href=""><span class="item_span"></span></a>
+                        <div class="likes">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                            <i class="fa fa-heart" aria-hidden="true"></i>
+                            <a>20</a>
+                        </div>
+                        <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                        </div>
+
+                        <div class="overlay item_top_border">
+                            <div class="center">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <a>Москва</a>
+                            </div>
+                            <div class="center">
+                                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                <a>Пересылка</a>
+                            </div>
+                            <div class="size">S</div>
+                        </div>
+                        <img class="item_image cropping item_top_border" src="images/item.jpg">
+                        <div class="item_bottom">
+                            <a href="" class="item_description">Свитер</a>                                        <div class="item_price">1000</div>                                        <a href="" class="item_brand">Zara</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="center">
+                    <div class="add_item">
+                        <a href="kek"><span class="item_span"></span></a>
+                        <div class="likes">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                            <i class="fa fa-heart" aria-hidden="true"></i>
+                            <a>20</a>
+                        </div>
+                        <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                        </div>
+
+                        <div class="overlay item_top_border">
+                            <div class="center">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <a>Москва</a>
+                            </div>
+                            <div class="center">
+                                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                <a>Пересылка</a>
+                            </div>
+                            <div class="size">S</div>
+                        </div>
+                        <img class="item_image cropping item_top_border" src="images/item.jpg">
+                        <div class="item_bottom">
+                            <a href="" class="item_description">Свитер</a>
+                            <div class="item_price">1000</div>
+                            <a href="" class="item_brand">Zara</a>
+                        </div>
+                    </div>
+                    <div class="add_item">
+                        <a href=""><span class="item_span"></span></a>
+                        <div class="likes">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                            <i class="fa fa-heart" aria-hidden="true"></i>
+                            <a>20</a>
+                        </div>
+                        <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                        </div>
+
+                        <div class="overlay item_top_border">
+                            <div class="center">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <a>Москва</a>
+                            </div>
+                            <div class="center">
+                                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                <a>Пересылка</a>
+                            </div>
+                            <div class="size">S</div>
+                        </div>
+                        <img class="item_image cropping item_top_border" src="images/item.jpg">
+                        <div class="item_bottom">
+                            <a href="" class="item_description">Свитер</a>                                        <div class="item_price">1000</div>                                        <a href="" class="item_brand">Zara</a>
+                        </div>
+                    </div>
+                    <div class="add_item">
+                        <a href=""><span class="item_span"></span></a>
+                        <div class="likes">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                            <i class="fa fa-heart" aria-hidden="true"></i>
+                            <a>20</a>
+                        </div>
+                        <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                        </div>
+
+                        <div class="overlay item_top_border">
+                            <div class="center">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <a>Москва</a>
+                            </div>
+                            <div class="center">
+                                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                <a>Пересылка</a>
+                            </div>
+                            <div class="size">S</div>
+                        </div>
+                        <img class="item_image cropping item_top_border" src="images/item.jpg">
+                        <div class="item_bottom">
+                            <a href="" class="item_description">Свитер</a>                                        <div class="item_price">1000</div>                                        <a href="" class="item_brand">Zara</a>
+                        </div>
+                    </div>
+                    <div class="add_item">
+                        <a href=""><span class="item_span"></span></a>
+                        <div class="likes">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                            <i class="fa fa-heart" aria-hidden="true"></i>
+                            <a>20</a>
+                        </div>
+                        <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                        </div>
+
+                        <div class="overlay item_top_border">
+                            <div class="center">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <a>Москва</a>
+                            </div>
+                            <div class="center">
+                                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                <a>Пересылка</a>
+                            </div>
+                            <div class="size">S</div>
+                        </div>
+                        <img class="item_image cropping item_top_border" src="images/item.jpg">
+                        <div class="item_bottom">
+                            <a href="" class="item_description">Свитер</a>                                        <div class="item_price">1000</div>                                        <a href="" class="item_brand">Zara</a>
+                        </div>
+                    </div>
+                    <div class="add_item">
+                        <a href=""><span class="item_span"></span></a>
+                        <div class="likes">
+                            <i class="fa fa-heart-o" aria-hidden="true"></i>
+                            <i class="fa fa-heart" aria-hidden="true"></i>
+                            <a>20</a>
+                        </div>
+                        <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
+                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                            <i class="fa fa-star" aria-hidden="true"></i>
+                        </div>
+
+                        <div class="overlay item_top_border">
+                            <div class="center">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <a>Москва</a>
+                            </div>
+                            <div class="center">
+                                <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                <a>Пересылка</a>
+                            </div>
+                            <div class="size">S</div>
+                        </div>
+                        <img class="item_image cropping item_top_border" src="images/item.jpg">
+                        <div class="item_bottom">
+                            <a href="" class="item_description">Свитер</a>                                        <div class="item_price">1000</div>                                        <a href="" class="item_brand">Zara</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="spinner hidden">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+            </div>
+            <div id="users_view" class="hidden">
+                <div class="subscription">
+                    <div class="profile">
+                        <div class="center">
+                            <a href=""><img src="images/avatar.jpg" style="border-radius: 50%; height: 50px"></a>
+                            <div style="margin-left: 18px">
+                                <a href="" class="title">Алена Куприянова</a>
+                                <button class="sign_in_btn subscribe_btn subscribed">Вы подписаны</button>
+                            </div>
+                        </div>
+                        <div class="stats center">
+                            <div class="stats_column">
+                                <div>продано</div>
+                                <div class="number">
+                                    0
+                                    <img src="images/tshirt.svg" height="10px">
+                                </div>
+                            </div>
+                            <div class="stats_column">
+                                <div>всего</div>
+                                <div class="number">
+                                    3
+                                    <img src="images/tshirt.svg" height="10px">
+                                </div>
+                            </div>
+                            <div class="stats_column">
+                                <div>рейтинг</div>
+                                <div class="number">
+                                    0/5
+                                </div>
+                            </div>
+                            <div class="stats_column">
+                                <div>фолловеры</div>
+                                <div class="number">
+                                    0
+                                </div>
+                            </div>
+                            <div class="stats_column">
+                                <div>лайки</div>
+                                <div class="number">
+                                    0
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ads">
+                        <div class="arrow_button_back">
+                            <img src="images/back_arrow.svg" height="20px">
+                        </div>
+                        <div class="owl-carousel">
+                            <div class="item">
                                 <div class="add_item">
-                                    <a href="kek"><span class="item_span"></span></a>
+                                    <a href=""><span class="item_span"></span></a>
                                     <div class="likes">
                                         <i class="fa fa-heart-o" aria-hidden="true"></i>
                                         <i class="fa fa-heart" aria-hidden="true"></i>
@@ -432,97 +836,13 @@
                                     </div>
                                     <img class="item_image cropping item_top_border" src="images/item.jpg">
                                     <div class="item_bottom">
-                                        <a href="" class="item_description">Свитер</a>
+                                        <div class="item_description">Свитер</div>
                                         <div class="item_price">1000</div>
-                                        <a href="" class="item_brand">Zara</a>
-                                    </div>
-                                </div>
-                                <div class="add_item">
-                                    <a href=""><span class="item_span"></span></a>
-                                    <div class="likes">
-                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                        <i class="fa fa-heart" aria-hidden="true"></i>
-                                        <a>20</a>
-                                    </div>
-                                    <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
-                                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                    </div>
-
-                                    <div class="overlay item_top_border">
-                                        <div class="center">
-                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                            <a>Москва</a>
-                                        </div>
-                                        <div class="center">
-                                            <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                                            <a>Пересылка</a>
-                                        </div>
-                                        <div class="size">S</div>
-                                    </div>
-                                    <img class="item_image cropping item_top_border" src="images/item.jpg">
-                                    <div class="item_bottom">
-                                        <a href="" class="item_description">Свитер</a>                                        <div class="item_price">1000</div>                                        <a href="" class="item_brand">Zara</a>
-                                    </div>
-                                </div>
-                                <div class="add_item">
-                                    <a href=""><span class="item_span"></span></a>
-                                    <div class="likes">
-                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                        <i class="fa fa-heart" aria-hidden="true"></i>
-                                        <a>20</a>
-                                    </div>
-                                    <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
-                                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                    </div>
-
-                                    <div class="overlay item_top_border">
-                                        <div class="center">
-                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                            <a>Москва</a>
-                                        </div>
-                                        <div class="center">
-                                            <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                                            <a>Пересылка</a>
-                                        </div>
-                                        <div class="size">S</div>
-                                    </div>
-                                    <img class="item_image cropping item_top_border" src="images/item.jpg">
-                                    <div class="item_bottom">
-                                        <a href="" class="item_description">Свитер</a>                                        <div class="item_price">1000</div>                                        <a href="" class="item_brand">Zara</a>
-                                    </div>
-                                </div>
-                                <div class="add_item">
-                                    <a href=""><span class="item_span"></span></a>
-                                    <div class="likes">
-                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                        <i class="fa fa-heart" aria-hidden="true"></i>
-                                        <a>20</a>
-                                    </div>
-                                    <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
-                                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                    </div>
-
-                                    <div class="overlay item_top_border">
-                                        <div class="center">
-                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                            <a>Москва</a>
-                                        </div>
-                                        <div class="center">
-                                            <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                                            <a>Пересылка</a>
-                                        </div>
-                                        <div class="size">S</div>
-                                    </div>
-                                    <img class="item_image cropping item_top_border" src="images/item.jpg">
-                                    <div class="item_bottom">
-                                        <a href="" class="item_description">Свитер</a>                                        <div class="item_price">1000</div>                                        <a href="" class="item_brand">Zara</a>
+                                        <div class="item_brand">Zara</div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="center">
+                            <div class="item">
                                 <div class="add_item">
                                     <a href=""><span class="item_span"></span></a>
                                     <div class="likes">
@@ -548,95 +868,13 @@
                                     </div>
                                     <img class="item_image cropping item_top_border" src="images/item.jpg">
                                     <div class="item_bottom">
-                                        <a href="" class="item_description">Свитер</a>                                        <div class="item_price">1000</div>                                        <a href="" class="item_brand">Zara</a>
-                                    </div>
-                                </div>
-                                <div class="add_item">
-                                    <a href=""><span class="item_span"></span></a>
-                                    <div class="likes">
-                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                        <i class="fa fa-heart" aria-hidden="true"></i>
-                                        <a>20</a>
-                                    </div>
-                                    <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
-                                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                    </div>
-
-                                    <div class="overlay item_top_border">
-                                        <div class="center">
-                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                            <a>Москва</a>
-                                        </div>
-                                        <div class="center">
-                                            <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                                            <a>Пересылка</a>
-                                        </div>
-                                        <div class="size">S</div>
-                                    </div>
-                                    <img class="item_image cropping item_top_border" src="images/item.jpg">
-                                    <div class="item_bottom">
-                                        <a href="" class="item_description">Свитер</a>                                        <div class="item_price">1000</div>                                        <a href="" class="item_brand">Zara</a>
-                                    </div>
-                                </div>
-                                <div class="add_item">
-                                    <a href=""><span class="item_span"></span></a>
-                                    <div class="likes">
-                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                        <i class="fa fa-heart" aria-hidden="true"></i>
-                                        <a>20</a>
-                                    </div>
-                                    <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
-                                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                    </div>
-
-                                    <div class="overlay item_top_border">
-                                        <div class="center">
-                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                            <a>Москва</a>
-                                        </div>
-                                        <div class="center">
-                                            <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                                            <a>Пересылка</a>
-                                        </div>
-                                        <div class="size">S</div>
-                                    </div>
-                                    <img class="item_image cropping item_top_border" src="images/item.jpg">
-                                    <div class="item_bottom">
-                                        <a href="" class="item_description">Свитер</a>                                        <div class="item_price">1000</div>                                        <a href="" class="item_brand">Zara</a>
-                                    </div>
-                                </div>
-                                <div class="add_item">
-                                    <a href=""><span class="item_span"></span></a>
-                                    <div class="likes">
-                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                        <i class="fa fa-heart" aria-hidden="true"></i>
-                                        <a>20</a>
-                                    </div>
-                                    <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
-                                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                    </div>
-
-                                    <div class="overlay item_top_border">
-                                        <div class="center">
-                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                            <a>Москва</a>
-                                        </div>
-                                        <div class="center">
-                                            <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                                            <a>Пересылка</a>
-                                        </div>
-                                        <div class="size">S</div>
-                                    </div>
-                                    <img class="item_image cropping item_top_border" src="images/item.jpg">
-                                    <div class="item_bottom">
-                                        <a href="" class="item_description">Свитер</a>                                        <div class="item_price">1000</div>                                        <a href="" class="item_brand">Zara</a>
+                                        <div class="item_description">Свитер</div>
+                                        <div class="item_price">1000</div>
+                                        <div class="item_brand">Zara</div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="center">
+                            <div class="item">
                                 <div class="add_item">
                                     <a href=""><span class="item_span"></span></a>
                                     <div class="likes">
@@ -662,95 +900,13 @@
                                     </div>
                                     <img class="item_image cropping item_top_border" src="images/item.jpg">
                                     <div class="item_bottom">
-                                        <a href="" class="item_description">Свитер</a>                                        <div class="item_price">1000</div>                                        <a href="" class="item_brand">Zara</a>
-                                    </div>
-                                </div>
-                                <div class="add_item">
-                                    <a href=""><span class="item_span"></span></a>
-                                    <div class="likes">
-                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                        <i class="fa fa-heart" aria-hidden="true"></i>
-                                        <a>20</a>
-                                    </div>
-                                    <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
-                                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                    </div>
-
-                                    <div class="overlay item_top_border">
-                                        <div class="center">
-                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                            <a>Москва</a>
-                                        </div>
-                                        <div class="center">
-                                            <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                                            <a>Пересылка</a>
-                                        </div>
-                                        <div class="size">S</div>
-                                    </div>
-                                    <img class="item_image cropping item_top_border" src="images/item.jpg">
-                                    <div class="item_bottom">
-                                        <a href="" class="item_description">Свитер</a>                                        <div class="item_price">1000</div>                                        <a href="" class="item_brand">Zara</a>
-                                    </div>
-                                </div>
-                                <div class="add_item">
-                                    <a href=""><span class="item_span"></span></a>
-                                    <div class="likes">
-                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                        <i class="fa fa-heart" aria-hidden="true"></i>
-                                        <a>20</a>
-                                    </div>
-                                    <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
-                                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                    </div>
-
-                                    <div class="overlay item_top_border">
-                                        <div class="center">
-                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                            <a>Москва</a>
-                                        </div>
-                                        <div class="center">
-                                            <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                                            <a>Пересылка</a>
-                                        </div>
-                                        <div class="size">S</div>
-                                    </div>
-                                    <img class="item_image cropping item_top_border" src="images/item.jpg">
-                                    <div class="item_bottom">
-                                        <a href="" class="item_description">Свитер</a>                                        <div class="item_price">1000</div>                                        <a href="" class="item_brand">Zara</a>
-                                    </div>
-                                </div>
-                                <div class="add_item">
-                                    <a href=""><span class="item_span"></span></a>
-                                    <div class="likes">
-                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
-                                        <i class="fa fa-heart" aria-hidden="true"></i>
-                                        <a>20</a>
-                                    </div>
-                                    <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
-                                        <i class="fa fa-star-o" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                    </div>
-
-                                    <div class="overlay item_top_border">
-                                        <div class="center">
-                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                            <a>Москва</a>
-                                        </div>
-                                        <div class="center">
-                                            <i class="fa fa-paper-plane" aria-hidden="true"></i>
-                                            <a>Пересылка</a>
-                                        </div>
-                                        <div class="size">S</div>
-                                    </div>
-                                    <img class="item_image cropping item_top_border" src="images/item.jpg">
-                                    <div class="item_bottom">
-                                        <a href="" class="item_description">Свитер</a>                                        <div class="item_price">1000</div>                                        <a href="" class="item_brand">Zara</a>
+                                        <div class="item_description">Свитер</div>
+                                        <div class="item_price">1000</div>
+                                        <div class="item_brand">Zara</div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="center">
+                            <div class="item">
                                 <div class="add_item">
                                     <a href=""><span class="item_span"></span></a>
                                     <div class="likes">
@@ -776,9 +932,13 @@
                                     </div>
                                     <img class="item_image cropping item_top_border" src="images/item.jpg">
                                     <div class="item_bottom">
-                                        <a href="" class="item_description">Свитер</a>                                        <div class="item_price">1000</div>                                        <a href="" class="item_brand">Zara</a>
+                                        <div class="item_description">Свитер</div>
+                                        <div class="item_price">1000</div>
+                                        <div class="item_brand">Zara</div>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="item">
                                 <div class="add_item">
                                     <a href=""><span class="item_span"></span></a>
                                     <div class="likes">
@@ -804,9 +964,13 @@
                                     </div>
                                     <img class="item_image cropping item_top_border" src="images/item.jpg">
                                     <div class="item_bottom">
-                                        <a href="" class="item_description">Свитер</a>                                        <div class="item_price">1000</div>                                        <a href="" class="item_brand">Zara</a>
+                                        <div class="item_description">Свитер</div>
+                                        <div class="item_price">1000</div>
+                                        <div class="item_brand">Zara</div>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="item">
                                 <div class="add_item">
                                     <a href=""><span class="item_span"></span></a>
                                     <div class="likes">
@@ -832,9 +996,13 @@
                                     </div>
                                     <img class="item_image cropping item_top_border" src="images/item.jpg">
                                     <div class="item_bottom">
-                                        <a href="" class="item_description">Свитер</a>                                        <div class="item_price">1000</div>                                        <a href="" class="item_brand">Zara</a>
+                                        <div class="item_description">Свитер</div>
+                                        <div class="item_price">1000</div>
+                                        <div class="item_brand">Zara</div>
                                     </div>
                                 </div>
+                            </div>
+                            <div class="item">
                                 <div class="add_item">
                                     <a href=""><span class="item_span"></span></a>
                                     <div class="likes">
@@ -860,15 +1028,310 @@
                                     </div>
                                     <img class="item_image cropping item_top_border" src="images/item.jpg">
                                     <div class="item_bottom">
-                                        <a href="" class="item_description">Свитер</a>                                        <div class="item_price">1000</div>                                        <a href="" class="item_brand">Zara</a>
+                                        <div class="item_description">Свитер</div>
+                                        <div class="item_price">1000</div>
+                                        <div class="item_brand">Zara</div>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="center others">
+                                <a href="" style="font-weight: normal; font-family: 'Roboto Condensed', sans-serif;
+text-transform: none; color: black;
+    text-decoration: none; letter-spacing: 2px; font-size: 16px; margin: 0 auto">
+                                    Смотреть другие
+                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="arrow_button_forward">
+                            <img src="images/forward_arrow.svg"  height="20">
+                        </div>
+                    </div>
+                </div>
+                <div class="subscription">
+                    <div class="profile">
+                        <div class="center">
+                            <a href=""><img src="images/avatar.jpg" style="border-radius: 50%; height: 50px"></a>
+                            <div style="margin-left: 18px">
+                                <a href="" class="title">Алена Куприянова</a>
+                                <button class="sign_in_btn subscribe_btn subscribed">Вы подписаны</button>
+                            </div>
+                        </div>
+                        <div class="stats center">
+                            <div class="stats_column">
+                                <div>продано</div>
+                                <div class="number">
+                                    0
+                                    <img src="images/tshirt.svg" height="10px">
+                                </div>
+                            </div>
+                            <div class="stats_column">
+                                <div>всего</div>
+                                <div class="number">
+                                    3
+                                    <img src="images/tshirt.svg" height="10px">
+                                </div>
+                            </div>
+                            <div class="stats_column">
+                                <div>рейтинг</div>
+                                <div class="number">
+                                    0/5
+                                </div>
+                            </div>
+                            <div class="stats_column">
+                                <div>фолловеры</div>
+                                <div class="number">
+                                    0
+                                </div>
+                            </div>
+                            <div class="stats_column">
+                                <div>лайки</div>
+                                <div class="number">
+                                    0
                                 </div>
                             </div>
                         </div>
-                        <div class="spinner hidden">
-                            <div class="bounce1"></div>
-                            <div class="bounce2"></div>
-                            <div class="bounce3"></div>
+                    </div>
+                    <div class="ads">
+                        <div class="arrow_button_back">
+                            <img src="images/back_arrow.svg" height="20px">
+                        </div>
+                        <div class="owl-carousel">
+                            <div class="item">
+                                <div class="add_item">
+                                    <a href=""><span class="item_span"></span></a>
+                                    <div class="likes">
+                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                        <i class="fa fa-heart" aria-hidden="true"></i>
+                                        <a>20</a>
+                                    </div>
+                                    <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
+                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    </div>
+
+                                    <div class="overlay item_top_border">
+                                        <div class="center">
+                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                            <a>Москва</a>
+                                        </div>
+                                        <div class="center">
+                                            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                            <a>Пересылка</a>
+                                        </div>
+                                        <div class="size">S</div>
+                                    </div>
+                                    <img class="item_image cropping item_top_border" src="images/item.jpg">
+                                    <div class="item_bottom">
+                                        <div class="item_description">Свитер</div>
+                                        <div class="item_price">1000</div>
+                                        <div class="item_brand">Zara</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="add_item">
+                                    <a href=""><span class="item_span"></span></a>
+                                    <div class="likes">
+                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                        <i class="fa fa-heart" aria-hidden="true"></i>
+                                        <a>20</a>
+                                    </div>
+                                    <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
+                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    </div>
+
+                                    <div class="overlay item_top_border">
+                                        <div class="center">
+                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                            <a>Москва</a>
+                                        </div>
+                                        <div class="center">
+                                            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                            <a>Пересылка</a>
+                                        </div>
+                                        <div class="size">S</div>
+                                    </div>
+                                    <img class="item_image cropping item_top_border" src="images/item.jpg">
+                                    <div class="item_bottom">
+                                        <div class="item_description">Свитер</div>
+                                        <div class="item_price">1000</div>
+                                        <div class="item_brand">Zara</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="add_item">
+                                    <a href=""><span class="item_span"></span></a>
+                                    <div class="likes">
+                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                        <i class="fa fa-heart" aria-hidden="true"></i>
+                                        <a>20</a>
+                                    </div>
+                                    <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
+                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    </div>
+
+                                    <div class="overlay item_top_border">
+                                        <div class="center">
+                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                            <a>Москва</a>
+                                        </div>
+                                        <div class="center">
+                                            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                            <a>Пересылка</a>
+                                        </div>
+                                        <div class="size">S</div>
+                                    </div>
+                                    <img class="item_image cropping item_top_border" src="images/item.jpg">
+                                    <div class="item_bottom">
+                                        <div class="item_description">Свитер</div>
+                                        <div class="item_price">1000</div>
+                                        <div class="item_brand">Zara</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="add_item">
+                                    <a href=""><span class="item_span"></span></a>
+                                    <div class="likes">
+                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                        <i class="fa fa-heart" aria-hidden="true"></i>
+                                        <a>20</a>
+                                    </div>
+                                    <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
+                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    </div>
+
+                                    <div class="overlay item_top_border">
+                                        <div class="center">
+                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                            <a>Москва</a>
+                                        </div>
+                                        <div class="center">
+                                            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                            <a>Пересылка</a>
+                                        </div>
+                                        <div class="size">S</div>
+                                    </div>
+                                    <img class="item_image cropping item_top_border" src="images/item.jpg">
+                                    <div class="item_bottom">
+                                        <div class="item_description">Свитер</div>
+                                        <div class="item_price">1000</div>
+                                        <div class="item_brand">Zara</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="add_item">
+                                    <a href=""><span class="item_span"></span></a>
+                                    <div class="likes">
+                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                        <i class="fa fa-heart" aria-hidden="true"></i>
+                                        <a>20</a>
+                                    </div>
+                                    <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
+                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    </div>
+
+                                    <div class="overlay item_top_border">
+                                        <div class="center">
+                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                            <a>Москва</a>
+                                        </div>
+                                        <div class="center">
+                                            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                            <a>Пересылка</a>
+                                        </div>
+                                        <div class="size">S</div>
+                                    </div>
+                                    <img class="item_image cropping item_top_border" src="images/item.jpg">
+                                    <div class="item_bottom">
+                                        <div class="item_description">Свитер</div>
+                                        <div class="item_price">1000</div>
+                                        <div class="item_brand">Zara</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="add_item">
+                                    <a href=""><span class="item_span"></span></a>
+                                    <div class="likes">
+                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                        <i class="fa fa-heart" aria-hidden="true"></i>
+                                        <a>20</a>
+                                    </div>
+                                    <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
+                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    </div>
+
+                                    <div class="overlay item_top_border">
+                                        <div class="center">
+                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                            <a>Москва</a>
+                                        </div>
+                                        <div class="center">
+                                            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                            <a>Пересылка</a>
+                                        </div>
+                                        <div class="size">S</div>
+                                    </div>
+                                    <img class="item_image cropping item_top_border" src="images/item.jpg">
+                                    <div class="item_bottom">
+                                        <div class="item_description">Свитер</div>
+                                        <div class="item_price">1000</div>
+                                        <div class="item_brand">Zara</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="add_item">
+                                    <a href=""><span class="item_span"></span></a>
+                                    <div class="likes">
+                                        <i class="fa fa-heart-o" aria-hidden="true"></i>
+                                        <i class="fa fa-heart" aria-hidden="true"></i>
+                                        <a>20</a>
+                                    </div>
+                                    <div class="fav" data-balloon="Добавить в избранное" data-balloon-pos="top">
+                                        <i class="fa fa-star-o" aria-hidden="true"></i>
+                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                    </div>
+
+                                    <div class="overlay item_top_border">
+                                        <div class="center">
+                                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                            <a>Москва</a>
+                                        </div>
+                                        <div class="center">
+                                            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                                            <a>Пересылка</a>
+                                        </div>
+                                        <div class="size">S</div>
+                                    </div>
+                                    <img class="item_image cropping item_top_border" src="images/item.jpg">
+                                    <div class="item_bottom">
+                                        <div class="item_description">Свитер</div>
+                                        <div class="item_price">1000</div>
+                                        <div class="item_brand">Zara</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="center others">
+                                <a href="" style="font-weight: normal; font-family: 'Roboto Condensed', sans-serif;
+text-transform: none; color: black;
+    text-decoration: none; letter-spacing: 2px; font-size: 16px; margin: 0 auto">
+                                    Смотреть другие
+                                    <i class="fa fa-angle-right" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="arrow_button_forward">
+                            <img src="images/forward_arrow.svg"  height="20">
                         </div>
                     </div>
                 </div>
