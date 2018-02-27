@@ -1,5 +1,7 @@
 Dropzone.autoDiscover = false;
 
+var dropzone;
+
 $(document).ready(function () {
     var city;
     var xhr;
@@ -26,14 +28,16 @@ $(document).ready(function () {
         })
     });
 
-    var dropzone = new Dropzone(".main_form", {
+    dropzone = new Dropzone(".main_form", {
         url: "/file/post",
         paramName: "avatar", // The name that will be used to transfer the file
         autoProcessQueue: false,
         uploadMultiple: false,
         parallelUploads: 1,
         maxFiles: 1,
+        // hiddenInputContainer: '.main_form',
         addRemoveLinks: true,
+        dictDefaultMessage: 'Добавить аватар',
         acceptedFiles: "image/jpeg,image/png,image/jpg",
         init: function() {
             this.on("maxfilesexceeded", function() {
@@ -43,7 +47,24 @@ $(document).ready(function () {
             });
         }
     });
-    $('.dz-message span').text('Добавить аватар');
+    //THIS SHIT SEEMS TO WORK
+    dropzone.on("addedfile", function () {
+        // Input node with selected files. It will be removed from document shortly in order to
+        // give user ability to choose another set of files.
+        var usedInput = dropzone.hiddenFileInput;
+        // Append it to form after stack become empty, because if you append it earlier
+        // it will be removed from its parent node by Dropzone.js.
+        setTimeout(function () {
+            $('.main_form').append(usedInput);
+        },0);
+        // Set some unique name in order to submit data.
+        usedInput.name = "avatar";
+    });
+    dropzone.on("removedfile", function () {
+        $('.main_form .dz-hidden-input').remove();
+    });
+    // $('.dz-message span').text('Добавить аватар');
+
     //add current avatar (when user edits his profile)
     if (document.getElementById('current_avatar_url'))
     {
